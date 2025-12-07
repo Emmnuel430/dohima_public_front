@@ -503,9 +503,11 @@ export const GridImages = ({ section }) => (
             key={index}
             className="relative rounded-xl overflow-hidden group h-72 flex items-end justify-center"
             style={{
-              backgroundImage: item.image
-                ? `url(${process.env.REACT_APP_API_BASE_URL_STORAGE}/${item.image})`
-                : "none",
+              backgroundImage:
+                "https://images.pexels.com/photos/271667/pexels-photo-271667.jpeg?_gl=1*15qtjbz*_ga*MTE4NDc5MTMxNi4xNzY1MTAxMzUz*_ga_8JE65Q40S6*czE3NjUxMDEzNTMkbzEkZzEkdDE3NjUxMDIwMTYkajUxJGwwJGgw"
+                  .image
+                  ? `url(${process.env.REACT_APP_API_BASE_URL_STORAGE}/${item.image})`
+                  : "none",
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}
@@ -944,15 +946,28 @@ export function GalerieGrid({ section }) {
   const galeriesParCategorie = useMemo(() => {
     const map = {};
     galeries.forEach((img) => {
-      const cat = img.categorie || "Autres";
+      const cat = img.categorie?.trim() || "Autres";
       if (!map[cat]) map[cat] = [];
       map[cat].push(img);
     });
-    return map;
-  }, [galeries]);
-  // console.log(galeriesParCategorie);
 
+    // Trier les catégories + les éléments de chaque catégorie
+    const sortedMap = {};
+
+    Object.keys(map)
+      .sort((a, b) => a.localeCompare(b)) // 🔥 tri alphabétique des catégories
+      .forEach((cat) => {
+        sortedMap[cat] = map[cat].sort((a, b) =>
+          (a.titre || "").localeCompare(b.titre || "")
+        ); // 🔥 tri interne des images
+      });
+
+    return sortedMap;
+  }, [galeries]);
+
+  // Liste des catégories triées
   const categories = Object.keys(galeriesParCategorie);
+
   const totalPages = Math.ceil(categories.length / perPage);
 
   const paginatedCategories = categories
@@ -1197,7 +1212,8 @@ export function GridProjets({ section }) {
       progression: 65,
       statut: "en_cours",
       lien_donation: "/don/projet-eau",
-      image: null,
+      image:
+        "https://images.pexels.com/photos/271667/pexels-photo-271667.jpeg?_gl=1*15qtjbz*_ga*MTE4NDc5MTMxNi4xNzY1MTAxMzUz*_ga_8JE65Q40S6*czE3NjUxMDEzNTMkbzEkZzEkdDE3NjUxMDIwMTYkajUxJGwwJGgw",
     },
     {
       title: "Construction d'une école",
@@ -1207,7 +1223,8 @@ export function GridProjets({ section }) {
       progression: 40,
       statut: "en_cours",
       lien_donation: "/don/ecole",
-      image: null,
+      image:
+        "https://images.pexels.com/photos/271667/pexels-photo-271667.jpeg?_gl=1*15qtjbz*_ga*MTE4NDc5MTMxNi4xNzY1MTAxMzUz*_ga_8JE65Q40S6*czE3NjUxMDEzNTMkbzEkZzEkdDE3NjUxMDIwMTYkajUxJGwwJGgw",
     },
     {
       title: "Projet Santé",
@@ -1218,7 +1235,8 @@ export function GridProjets({ section }) {
       progression: 100,
       statut: "terminee",
       lien_donation: "/don/sante",
-      image: null,
+      image:
+        "https://images.pexels.com/photos/271667/pexels-photo-271667.jpeg?_gl=1*15qtjbz*_ga*MTE4NDc5MTMxNi4xNzY1MTAxMzUz*_ga_8JE65Q40S6*czE3NjUxMDEzNTMkbzEkZzEkdDE3NjUxMDIwMTYkajUxJGwwJGgw",
     },
   ];
 

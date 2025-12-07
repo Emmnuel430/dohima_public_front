@@ -616,7 +616,8 @@ export default function TwoColsMembres({ section }) {
       commune: "Abidjan",
       annee_adhesion: 2021,
       mois_adhesion: "Mars",
-      photo: null,
+      photo:
+        "https://images.pexels.com/photos/35058270/pexels-photo-35058270.jpeg?_gl=1*s8n8b5*_ga*MTE4NDc5MTMxNi4xNzY1MTAxMzUz*_ga_8JE65Q40S6*czE3NjUxMDEzNTMkbzEkZzEkdDE3NjUxMDI0MjckajM3JGwwJGgw",
       is_active: true,
     },
     {
@@ -626,7 +627,8 @@ export default function TwoColsMembres({ section }) {
       commune: "Yopougon",
       annee_adhesion: 2022,
       mois_adhesion: "Juin",
-      photo: null,
+      photo:
+        "https://images.pexels.com/photos/35075355/pexels-photo-35075355.jpeg?_gl=1*1jmx595*_ga*MTE4NDc5MTMxNi4xNzY1MTAxMzUz*_ga_8JE65Q40S6*czE3NjUxMDEzNTMkbzEkZzEkdDE3NjUxMDI1MjQkajE5JGwwJGgw",
       is_active: true,
     },
     {
@@ -636,7 +638,8 @@ export default function TwoColsMembres({ section }) {
       commune: "Cocody",
       annee_adhesion: 2023,
       mois_adhesion: "Janvier",
-      photo: null,
+      photo:
+        "https://images.pexels.com/photos/35058270/pexels-photo-35058270.jpeg?_gl=1*s8n8b5*_ga*MTE4NDc5MTMxNi4xNzY1MTAxMzUz*_ga_8JE65Q40S6*czE3NjUxMDEzNTMkbzEkZzEkdDE3NjUxMDI0MjckajM3JGwwJGgw",
       is_active: true,
     },
     {
@@ -646,7 +649,8 @@ export default function TwoColsMembres({ section }) {
       commune: "Marcory",
       annee_adhesion: 2020,
       mois_adhesion: "Octobre",
-      photo: null,
+      photo:
+        "https://images.pexels.com/photos/30053902/pexels-photo-30053902.jpeg?_gl=1*1kxxye4*_ga*MTE4NDc5MTMxNi4xNzY1MTAxMzUz*_ga_8JE65Q40S6*czE3NjUxMDEzNTMkbzEkZzEkdDE3NjUxMDI2MDgkajM3JGwwJGgw",
       is_active: false,
     },
   ];
